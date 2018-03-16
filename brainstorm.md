@@ -1,7 +1,7 @@
-# Brainstrom
+# Brainstorm
 
 ## Principe
-L'application permets de consulter, créer, supprimer et modifier des notes prise par l'utilisateur.
+L'application permets de consulter, créer, supprimer et modifier des notes prise par l'utilisateur sous forme de bloc-note.
 
 
 ## Fonctionnement
