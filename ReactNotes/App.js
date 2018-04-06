@@ -46,7 +46,7 @@ export default class App extends Component {
       <View style={styles.screenContainer}>
         <Text style={styles.mainTitle}>React Notes</Text>
         
-        <ScrollView contentContainerStyle={styles.container}>
+        <ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={true}>
           <Note 
             title='Titre de la note'
             date='XX/XX/XXXX'
