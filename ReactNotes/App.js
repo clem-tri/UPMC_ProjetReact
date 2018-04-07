@@ -4,7 +4,9 @@ import ShowAllNotes from "./ShowAllNotes";
 import ShowNote from "./ShowNote";
 
 
-export default App = StackNavigator({
+const App = StackNavigator({
     ShowAllNotes: { screen: ShowAllNotes },
     ShowNote: { screen: ShowNote },
 });
+
+export default App;

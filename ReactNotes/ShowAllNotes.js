@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AsyncStorage ,Button } from 'react-native'
+import { AsyncStorage ,Button, View } from 'react-native'
 class ShowAllNotes extends Component {
 
 
@@ -8,7 +8,7 @@ class ShowAllNotes extends Component {
     };
 
     state = {
-        'noteContent': ''
+        'noteContent': 'Note'
     };
 
     componentDidMount = () => AsyncStorage.getItem('noteContent').then((value) =>
@@ -18,12 +18,14 @@ class ShowAllNotes extends Component {
     render() {
         const {navigate} = this.props.navigation;
         return (
+            <View>
             <Button
                 title={this.state.noteContent}
                 onPress={() =>
                     navigate('ShowNote', {noteContent: this.state.noteContent})
                 }
             />
+            </View>
         );
     }
 }

@@ -1,12 +1,26 @@
 import React, { Component } from 'react'
-import { AsyncStorage, View, TextInput, StyleSheet,Button } from 'react-native'
+import { AsyncStorage, View, TextInput, Icon , StyleSheet,Button } from 'react-native'
 
 class ShowNote extends Component {
 
 
+    static navigationOptions = ({ navigation }) => ({
+        title: 'Note Details',
+        headerRight: (
+            <Button title="Sauvegarder"
+                    color="#7BCC70"
+                    onPress={() =>
+                        navigation.goBack()
+                    }
+            />
+        ),
+    });
+
     state = {
         'noteContent': ''
     };
+
+
 
     componentDidMount = () => AsyncStorage.getItem('noteContent').then((value)=> {
         this.setState({ 'noteContent': value })
@@ -21,33 +35,17 @@ class ShowNote extends Component {
 
     render() {
 
-
-
         return (
 
             <View style = {styles.container}>
 
                 <TextInput
-
                     autoCapitalize = 'none'
-
                     value={this.state.noteContent}
-
                     onChangeText = {this.setNoteContent}
-
                     editable = {true}
-
                     multiline = {true}
-
                     numberOfLines = {4}
-
-
-                />
-
-                <Button
-                title="Go back"
-                onPress={() => this.props.navigation.goBack()}
-
                 />
 
             </View>
