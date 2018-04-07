@@ -1,4 +1,10 @@
-import React, { Component } from 'react';
+/* Imports */
+
+import
+    React,
+    { Component }
+from 'react';
+
 import { 
   Text, 
   View, 
@@ -7,7 +13,17 @@ import {
   TouchableOpacity,
 } 
 from 'react-native';
-import { Constants } from 'expo';
+
+import {
+    StackNavigator,
+} from 'react-navigation';
+
+import {
+    Constants
+}
+from 'expo';
+
+/* End of Imports */
 
 class Note extends Component {
   constructor(props) {
@@ -151,11 +167,8 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
   textNote: {
-    textOverflow: 'ellipsis',
-	  whiteSpace: 'nowrap',
-	  overflow: 'hidden',
-	  margin: 10,
-	  color: '#fff',
+    margin: 10,
+    color: '#fff',
     textAlign: 'center',
   },
   roundButton: {
