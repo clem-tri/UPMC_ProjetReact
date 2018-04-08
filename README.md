@@ -14,8 +14,8 @@ The project is made by :
 The purpose of this application is to allow a user to have a personal note available, 
 in which he can put all the information he wants to remember.
 
-[![Home Screen](https://ibb.co/dnJ1bc)]
-[![Modification Screen](https://ibb.co/jCLshH)]
+[![Home Screen](https://image.ibb.co/bzGXhH/Home.png)]
+[![Modification Screen](https://image.ibb.co/gOagbc/Modification.png)]
 
 ## Difficulties
 
