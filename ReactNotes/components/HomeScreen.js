@@ -26,6 +26,9 @@ class HomeScreen extends Component {
                         title='Titre de la note'
                         date='XX/XX/XXXX'
                         text='Lorem ipsum dolor sit amet dalama le lobaum para siep en mi corazon'
+                        onPress={() =>
+                            navigate('Consult', {})
+                        }
                     />
                 </ScrollView>
 
