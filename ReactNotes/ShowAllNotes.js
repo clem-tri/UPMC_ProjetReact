@@ -7,26 +7,33 @@ class ShowAllNotes extends Component {
         title: 'React Notes',
     };
 
+
+
     state = {
-        'noteContent': 'Note'
+        note : {
+            id: 1,
+            title: "Ma note",
+            content: ""
+        }
+
     };
 
-    componentDidMount = () => AsyncStorage.getItem('noteContent').then((value) =>
-        this.setState({ 'noteContent': value }));
+
+
+    componentDidMount = () => AsyncStorage.getItem('note').then((value) =>
+        this.setState(value));
 
 
     render() {
         const {navigate} = this.props.navigation;
-        return (
-            <View>
-            <Button
-                title={this.state.noteContent}
-                onPress={() =>
-                    navigate('ShowNote', {noteContent: this.state.noteContent})
-                }
-            />
-            </View>
-        );
+            return (
+                <View key={this.state.note.id}>
+                    <Button title={this.state.note.title}
+                    onPress={() =>
+                        navigate('ShowNote', {'note': this.state.note})}>
+                    </Button>
+                </View>
+            )
     }
 }
 export default ShowAllNotes

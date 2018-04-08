@@ -1,39 +1,44 @@
 import React, { Component } from 'react'
-import { AsyncStorage, View, TextInput, Icon , StyleSheet,Button } from 'react-native'
+import { AsyncStorage, View, TextInput , StyleSheet,Button } from 'react-native'
 
 class ShowNote extends Component {
 
 
     static navigationOptions = ({ navigation }) => ({
-        title: 'Note Details',
-        headerRight: (
-            <Button title="Sauvegarder"
-                    color="#7BCC70"
-                    onPress={() =>
-                        navigation.goBack()
-                    }
-            />
-        ),
+        title: 'Note Details'
     });
 
+
+
     state = {
-        'noteContent': ''
+        note : {}
     };
 
 
-
-    componentDidMount = () => AsyncStorage.getItem('noteContent').then((value)=> {
-        this.setState({ 'noteContent': value })
-    });
+    componentWillMount = () => {
+        const { params } = this.props.navigation.state;
+        const note = params ? params.note : null;
+        this.state.note =  note ;
+        AsyncStorage.getItem('note').then((value) =>
+            this.setState('note', value))
+    };
 
 
     setNoteContent = (value) => {
-        AsyncStorage.setItem('noteContent', value);
-        this.setState({'noteContent': value});
-    };
+
+        let note = Object.assign({}, this.state.note);    //creating copy of object
+        note.content = value;
+        AsyncStorage.setItem( 'note', JSON.stringify(note));
+        this.setState({note: note});
+
+        AsyncStorage.getItem('note').then((value) =>
+            console.log(value))
+    }
+    ;
 
 
     render() {
+
 
         return (
 
@@ -41,7 +46,7 @@ class ShowNote extends Component {
 
                 <TextInput
                     autoCapitalize = 'none'
-                    value={this.state.noteContent}
+                    value={this.state.note.content}
                     onChangeText = {this.setNoteContent}
                     editable = {true}
                     multiline = {true}
