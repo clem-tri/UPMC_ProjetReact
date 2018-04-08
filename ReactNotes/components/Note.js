@@ -23,7 +23,6 @@ export default class Note extends Component {
         }
     }
 
-    //Render method
     render() {
         const {navigate} = this.props.navigation;
 

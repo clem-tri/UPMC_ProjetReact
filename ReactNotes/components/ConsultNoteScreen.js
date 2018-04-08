@@ -74,7 +74,7 @@ export default class ConsultNoteScreen extends Component {
             <View style={styles.screenContainer}>
                 <Text style={styles.mainTitle}>React Notes</Text>
                 <TextInput
-                    onChangeText={ this.setTitle} //(text) => this.saveTitle(text)
+                    onChangeText={this.setTitle} //(text) => this.saveTitle(text)
                     style={styles.noteTitle}
                     editable = {true}
                     value={this.state.title}

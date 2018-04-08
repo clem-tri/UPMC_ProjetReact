@@ -8,6 +8,10 @@ import {
 /* End of Imports */
 
 export default class CreateNoteScreen extends Component {
+    static navigationOptions = ({ navigation }) => ({
+        title: 'Home'
+    });
+
     render() {
         return (
             <View style={styles.container}>
