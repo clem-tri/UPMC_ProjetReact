@@ -9,7 +9,6 @@ import {
     TouchableOpacity,
 } from 'react-native';
 
-import {Constants} from 'expo';
 import Note from './Note';
 /* End of Imports */
 
@@ -22,10 +21,10 @@ export default class HomeScreen extends Component {
                 <Text style={styles.mainTitle}>React Notes</Text>
                 <ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={true}>
                     <Note
-                        title='Titre de la note'
-                        date='XX/XX/XXXX'
-                        text='Lorem ipsum dolor sit amet dalama le lobaum para siep en mi corazon'
-                        id='-1'
+                        title='Titre de la note' //todo : real note value
+                        date='XX/XX/XXXX' //todo : real note value
+                        text='Lorem ipsum dolor sit amet dalama le lobaum para siep en mi corazon' //todo : real note value
+                        id='-1' //todo : real note value
                         navigation={this.props.navigation}
                     />
                 </ScrollView>
@@ -64,7 +63,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginBottom: 15,
     },
-
     roundButton: {
         position: 'absolute',
         alignItems:'center',
