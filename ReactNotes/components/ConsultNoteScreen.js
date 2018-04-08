@@ -6,6 +6,7 @@ import {
     TextInput,
     StyleSheet,
     ScrollView,
+    AsyncStorage
 } from 'react-native';
 /* End of Imports */
 
@@ -13,10 +14,12 @@ export default class ConsultNoteScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: 'Titre de la note', //todo : data note value
+            title: '', //todo : data note value
             date: Date.now(), //todo : data note value
-            content: 'Lorem ipsum dolor sit amet dalama le lobaum para siep en mi corazon', //todo : data note value
+            content: '', //todo : data note value
         };
+
+
 
         this.saveTitle = function(text) {
             this.setState(previousState => {
@@ -47,6 +50,25 @@ export default class ConsultNoteScreen extends Component {
         }
     }
 
+    static navigationOptions = ({ navigation }) => ({
+        title: 'Details de la note'
+    });
+
+    componentDidMount = () => {
+        AsyncStorage.getItem('title').then((value) => this.setState({ 'title': value }));
+        AsyncStorage.getItem('content').then((value) => this.setState({ 'content': value }));
+    } ;
+
+    setTitle = (value) => {
+        AsyncStorage.setItem('title', value);
+        this.setState({'title': value});
+    };
+
+    setContent = (value) => {
+        AsyncStorage.setItem('content', value);
+        this.setState({'content': value});
+    };
+
     render() {
         const {navigate} = this.props.navigation;
 
@@ -54,19 +76,21 @@ export default class ConsultNoteScreen extends Component {
             <View style={styles.screenContainer}>
                 <Text style={styles.mainTitle}>React Notes</Text>
                 <TextInput
-                    onChangeText={(text) => this.saveTitle(text)}
+                    onChangeText={ this.setTitle} //(text) => this.saveTitle(text)
                     style={styles.noteTitle}
                     editable = {true}
                     value={this.state.title}
+                    placeHolder = "Titre de la note"
                 />
                 <ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={true}>
                     <TextInput
-                        onChangeText={(text) => this.saveContent(text)}
+                        onChangeText={this.setContent} //(text) => this.saveContent(text)
                         style = {styles.noteContent}
                         multiline= {true}
                         editable = {true}
                         value={this.state.content}
                         textBreakStrategy = 'balanced'
+                        placeHolder = "Contenu de la note"
                     />
                 </ScrollView>
             </View>
