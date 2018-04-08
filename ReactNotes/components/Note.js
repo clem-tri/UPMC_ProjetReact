@@ -14,7 +14,7 @@ export default class Note extends Component {
         this.id = this.props.id;
         this.textTest = () => {
             let textCrop = this.props.text;
-            let size = 50;
+            let size = 150;
 
             if(textCrop.length > size)
                 textCrop = textCrop.substring(0,size)+'...';
@@ -38,9 +38,7 @@ export default class Note extends Component {
                 <Text style={styles.titleNote}>
                     {this.props.title}
                 </Text>
-                <Text style={styles.dateNote}>
-                    {this.props.date}
-                </Text>
+
                 <Text style={styles.textNote}>
                     {this.textTest()}
                 </Text>
@@ -68,11 +66,11 @@ const styles = StyleSheet.create({
         color: '#fff',
         textAlign: 'center',
     },
-    dateNote: {
+    /*dateNote: {
         color: '#fff',
         textAlign: 'center',
         fontStyle: 'italic',
-    },
+    },*/
     textNote: {
         margin: 10,
         color: '#fff',

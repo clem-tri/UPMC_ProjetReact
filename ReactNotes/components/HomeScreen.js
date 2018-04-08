@@ -21,9 +21,9 @@ export default class HomeScreen extends Component {
                 <Text style={styles.mainTitle}>React Notes</Text>
                 <ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={true}>
                     <Note
-                        title='Titre de la note' //todo : real note value
-                        date='XX/XX/XXXX' //todo : real note value
-                        text='Lorem ipsum dolor sit amet dalama le lobaum para siep en mi corazon' //todo : real note value
+                        title='My personnal note' //todo : real note value
+                        //date='XX/XX/XXXX' //todo : real note value
+                        text='To consult your personnal note, you can click on this post-it. It keeps your informations in a sure place on your phone !' //todo : real note value
                         id='-1' //todo : real note value
                         navigation={this.props.navigation}
                     />

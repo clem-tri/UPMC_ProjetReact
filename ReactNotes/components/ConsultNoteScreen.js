@@ -15,17 +15,15 @@ export default class ConsultNoteScreen extends Component {
         super(props);
         this.state = {
             title: '', //todo : data note value
-            date: Date.now(), //todo : data note value
+            //date: Date.now(), //todo : data note value
             content: '', //todo : data note value
         };
-
-
 
         this.saveTitle = function(text) {
             this.setState(previousState => {
                 return {
                     title: text,
-                    date:  Date.now(),
+                    //date:  Date.now(),
                     content: previousState.content,
                 };
             });
@@ -37,7 +35,7 @@ export default class ConsultNoteScreen extends Component {
             this.setState(previousState => {
                 return {
                     title: previousState.title,
-                    date:  Date.now(),
+                    //date:  Date.now(),
                     content: text,
                 };
             });
@@ -51,7 +49,7 @@ export default class ConsultNoteScreen extends Component {
     }
 
     static navigationOptions = ({ navigation }) => ({
-        title: 'Details de la note'
+        title: 'Home'
     });
 
     componentDidMount = () => {
