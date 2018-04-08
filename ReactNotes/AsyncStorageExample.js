@@ -1,16 +1,37 @@
 import React, { Component } from 'react'
-import { AsyncStorage, Text, View, TextInput, StyleSheet } from 'react-native'
+import { AsyncStorage, View, TextInput, StyleSheet } from 'react-native'
 
 class AsyncStorageExample extends Component {
-    state = {
-        'name': ''
-    };
-    componentDidMount = () => AsyncStorage.getItem('name').then((value) =>
-        this.setState({ 'name': value }));
 
-    setName = (value) => {
-    AsyncStorage.setItem('name', value);
-    this.setState({ 'name': value });
+
+
+    static navigationOptions = ({ navigation }) => ({
+        title: 'Details de la note'
+    });
+
+    state = {
+        'title' : '',
+        'content': ''
+    };
+
+    componentDidMount = () => {
+        AsyncStorage.getItem('title').then((value) => this.setState({ 'title': value }));
+        AsyncStorage.getItem('content').then((value) => this.setState({ 'content': value }));
+    } ;
+
+
+
+
+    setTitle = (value) => {
+        AsyncStorage.setItem('title', value);
+        this.setState({'title': value});
+    };
+
+    setContent = (value) => {
+    AsyncStorage.setItem('content', value);
+    this.setState({ 'content': value });
+
+
 };
 
 
@@ -20,11 +41,18 @@ class AsyncStorageExample extends Component {
     return (
         <View style = {styles.container}>
             <TextInput
+                value={ this.state.title}
+                onChangeText = {this.setTitle}
+                placeholder = "Titre de la note"
+
+            />
+            <TextInput
                 autoCapitalize = 'none'
-                value={ this.state.name}
-                onChangeText = {this.setName}
+                value={ this.state.content}
+                onChangeText = {this.setContent}
                 multiline = {true}
                 numberOfLines = {4}
+                placeholder = "Contenu de la note"
 
             />
         </View>

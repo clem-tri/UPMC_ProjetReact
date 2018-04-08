@@ -9,17 +9,6 @@ class ShowAllNotes extends Component {
 
 
 
-    state = {
-        note : {
-            id: 1,
-            title: "Ma note",
-            content: ""
-        }
-
-    };
-
-
-
     componentDidMount = () => AsyncStorage.getItem('note').then((value) =>
         this.setState(value));
 
@@ -27,10 +16,10 @@ class ShowAllNotes extends Component {
     render() {
         const {navigate} = this.props.navigation;
             return (
-                <View key={this.state.note.id}>
-                    <Button title={this.state.note.title}
+                <View>
+                    <Button title="Ma note"
                     onPress={() =>
-                        navigate('ShowNote', {'note': this.state.note})}>
+                        navigate("AsyncStorageExample")}>
                     </Button>
                 </View>
             )
